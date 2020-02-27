@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.2.2">
+<eagle version="9.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -52,7 +52,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -96,6 +96,26 @@ Brake Lights, and Headlights.</description>
 <pad name="P$1" x="-22.86" y="3.81" drill="0.6" shape="square"/>
 <pad name="P$2" x="-17.78" y="3.81" drill="0.6" shape="square"/>
 </package>
+<package name="USB_CHARGER">
+<pad name="P$1" x="0" y="0" drill="0.6" shape="square"/>
+<pad name="P$2" x="0" y="2.54" drill="0.6" shape="square"/>
+<pad name="P$3" x="0" y="5.08" drill="0.6" shape="square"/>
+<pad name="VBUS" x="0" y="7.62" drill="0.6" shape="square"/>
+<pad name="P$5" x="0" y="-2.54" drill="0.6" shape="square"/>
+<pad name="P$4" x="-2.54" y="7.62" drill="0.6" shape="square"/>
+<pad name="P$6" x="-2.54" y="5.08" drill="0.6" shape="square"/>
+<pad name="P$7" x="-2.54" y="2.54" drill="0.6" shape="square"/>
+<pad name="P$8" x="-2.54" y="0" drill="0.6" shape="square"/>
+<pad name="P$9" x="-2.54" y="-2.54" drill="0.6" shape="square"/>
+</package>
+<package name="RADIO">
+<pad name="P$1" x="0" y="1.27" drill="0.6" shape="square"/>
+<pad name="P$2" x="0" y="-1.27" drill="0.6" shape="square"/>
+</package>
+<package name="DRIVER_FAN">
+<pad name="P$1" x="0" y="2.54" drill="0.6" shape="square"/>
+<pad name="P$2" x="0" y="-2.54" drill="0.6" shape="square"/>
+</package>
 </packages>
 <symbols>
 <symbol name="12V-BATTERY">
@@ -110,8 +130,8 @@ Brake Lights, and Headlights.</description>
 <wire x1="-5.08" y1="17.78" x2="-5.08" y2="15.24" width="0.254" layer="94"/>
 <wire x1="-5.08" y1="15.24" x2="-5.08" y2="12.7" width="0.254" layer="94"/>
 <wire x1="0" y1="15.24" x2="-5.08" y2="15.24" width="0.254" layer="94"/>
-<text x="-12.7" y="22.86" size="1.778" layer="95">&gt;Name</text>
-<text x="-12.7" y="5.08" size="1.778" layer="96">&gt;Values</text>
+<text x="-12.7" y="22.86" size="1.778" layer="95">&gt;BAT</text>
+<text x="-12.7" y="5.08" size="1.778" layer="96">&gt;+12V</text>
 </symbol>
 <symbol name="LED">
 <description>LED Used To Represent Turning Blinkers, BPS Warning Indicator/Strobe Lights,
@@ -171,6 +191,36 @@ Brake Lights, and Headlights.</description>
 <text x="-3.81" y="-3.175" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="2" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
 <pin name="1" x="-5.08" y="0" visible="pad" length="short" direction="pas"/>
+</symbol>
+<symbol name="USB_CHARGER">
+<pin name="VBUS" x="17.78" y="7.62" length="middle" rot="R180"/>
+<text x="5.08" y="15.24" size="1.778" layer="95">&gt;USB_CHARGER</text>
+<wire x1="12.7" y1="10.16" x2="-2.54" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="10.16" x2="-2.54" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-15.24" x2="12.7" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-15.24" x2="12.7" y2="10.16" width="0.254" layer="94"/>
+<pin name="DM" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="DP" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="GND" x="17.78" y="-7.62" length="middle" rot="R180"/>
+<pin name="SHD" x="17.78" y="-12.7" length="middle" rot="R180"/>
+</symbol>
+<symbol name="RADIO">
+<wire x1="-10.16" y1="7.62" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="7.62" x2="-10.16" y2="7.62" width="0.254" layer="94"/>
+<pin name="P$1" x="-15.24" y="0" length="middle"/>
+<pin name="P$2" x="15.24" y="0" length="middle" rot="R180"/>
+<text x="2.54" y="10.16" size="1.778" layer="95">&gt;RADIO</text>
+</symbol>
+<symbol name="DRIVER_FAN">
+<wire x1="-10.16" y1="5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-5.08" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<pin name="P$1" x="15.24" y="0" length="middle" rot="R180"/>
+<pin name="P$2" x="-15.24" y="0" length="middle"/>
+<text x="5.08" y="7.62" size="1.778" layer="95">&lt;FAN</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -238,6 +288,58 @@ Brake Lights, and Headlights.</description>
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="USB_CHARGER">
+<description>USB CHARGER</description>
+<gates>
+<gate name="G$1" symbol="USB_CHARGER" x="-5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="USB_CHARGER">
+<connects>
+<connect gate="G$1" pin="DM" pad="P$1"/>
+<connect gate="G$1" pin="DP" pad="P$2"/>
+<connect gate="G$1" pin="GND" pad="P$3"/>
+<connect gate="G$1" pin="SHD" pad="P$4"/>
+<connect gate="G$1" pin="VBUS" pad="P$5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="RADIO">
+<gates>
+<gate name="G$1" symbol="RADIO" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="RADIO">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+<connect gate="G$1" pin="P$2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DRIVER_FAN">
+<gates>
+<gate name="G$1" symbol="DRIVER_FAN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DRIVER_FAN">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$2"/>
+<connect gate="G$1" pin="P$2" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
