@@ -12,6 +12,9 @@ int throttlePin = A3;
 //relay connection
 const int relayPin = 3;
 
+//brake light 
+const int brakeLight = 33;
+
 //variables we want to save;
 int currentState = 1; //1 = neutral, 2 = drive, 3 = reverse, 4 = cruiseControl, 5 = brake  we start at neutral!
 int cruiseControlSpeed; //Used to save the speed for cruise control
@@ -35,6 +38,7 @@ void setup() {
   pinMode(cruisePin, INPUT_PULLUP);
   pinMode(brakePin, INPUT_PULLUP);
   pinMode(reversePin, INPUT_PULLUP);
+  pinMode(brakeLight, OUTPUT); 
 }//end funct setup
 
 
@@ -178,8 +182,9 @@ void loop() {
   if (digitalRead(brakePin) == LOW && currentState != 4) {
     Serial.print("\nStopping Motors");
     motorDriver.setM1Brake(400);
+    digitalWrite(brakeLight,HIGH);
   } else {
-
+    digitalWrite(brakeLight,LOW);
     switch (currentState) {
       case 4:
         digitalWrite(relayPin, HIGH);
